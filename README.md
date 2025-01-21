@@ -1,6 +1,6 @@
 # Trends-and-Sentiment-Mining-for-Gaming-Applications
 
-##Requirements:
+#Requirements:
 beautifulsoup4==4.12.2
 matplotlib==3.7.1
 nltk==3.8.1
