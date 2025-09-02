@@ -1,106 +1,147 @@
-# Mining Sentiments & Analyzing Trends in Gaming Applications
+# 🎮 Trends and Sentiment Mining for Gaming Applications
 
-## Project Description
-This project focuses on sentiment analysis and trend visualization of user reviews from popular gaming platforms like Steam. By examining reviews for games such as *Counter-Strike: Global Offensive*, *Dota 2*, *Apex Legends*, and others, it provides valuable insights into community opinions and emerging trends. The system leverages tools like **TextBlob** for detecting sentiment polarity, **Transformers** for deep learning-based sentiment analysis, and various data visualization techniques to track how user feedback evolves over time.
+## 📖 Project Description
+**Trends and Sentiment Mining for Gaming Applications** is an open-source project that analyzes user reviews from popular games like *Counter-Strike: Global Offensive*, *Dota 2*, and *Apex Legends*.  
+The project uncovers **sentiment trends over time** to better understand player experiences and reactions to updates, events, and community shifts.
+
+By combining **web scraping**, **natural language processing**, and **machine learning**, this tool provides actionable insights for both game developers and researchers interested in community feedback.
 
 ---
 
-## Installation
+## ✨ Features
+- 🔎 **Automated Web Scraping** with Selenium & BeautifulSoup  
+- 🧹 **Data Preprocessing** (tokenization, stopword removal, normalization) using NLTK & pandas  
+- 🤖 **Sentiment Analysis** via:
+  - TextBlob (lexicon-based polarity scoring)
+  - Hugging Face Transformers (context-aware classification)  
+- 📊 **Visualization** with matplotlib to track sentiment trends over time  
+- ⚡ Modular pipeline for easy extension to other games or datasets  
+
+---
+
+## ⚙️ Installation
 
 ### Prerequisites
-Ensure the following requirements are met before proceeding:
+- Python **3.7+**
+- (Optional) ChromeDriver or other WebDriver if using Selenium
+- NLTK corpora (stopwords, punkt, etc.)
 
-- **Python 3.7 or higher**
-- Required Python libraries:
-  - `beautifulsoup4` for web scraping
-  - `pandas` for data manipulation
-  - `nltk` for natural language preprocessing
-  - `textblob` for sentiment analysis
-  - `transformers` for advanced NLP analysis
-  - `matplotlib` and `seaborn` for visualizations
-
-### Installation Command
-Install the required libraries using the following command:
-
+### Setup
+Clone the repository and install dependencies:
 ```bash
+git clone https://github.com/yourusername/Trends-and-Sentiment-Mining-for-Gaming-Applications.git
+cd Trends-and-Sentiment-Mining-for-Gaming-Applications
 pip install -r requirements.txt
-```
+````
 
-### Requirements File
-The `requirements.txt` file includes the following dependencies:
+---
 
-```
-beautifulsoup4==4.12.2
-matplotlib==3.7.1
-nltk==3.8.1
-numpy==1.24.4
-pandas==2.0.3
-requests==2.31.0
-scipy==1.11.2
-scikit-learn==1.3.0
-textblob==0.17.1
-torch==2.0.1
-transformers==4.31.0
+## 🚀 Usage
+
+1. **Scrape Reviews**
+
+   ```bash
+   python data_collection.py
+   ```
+
+2. **Preprocess Data**
+
+   ```bash
+   python preprocess.py
+   ```
+
+3. **Run Sentiment Analysis**
+
+   ```bash
+   python sentiment_analysis.py
+   ```
+
+4. **Visualize Trends**
+
+   ```bash
+   python trend_visualization.py
+   ```
+
+Output includes:
+
+* Cleaned review datasets
+* Sentiment-labeled reviews
+* Time-series visualizations of sentiment per game
+
+---
+
+## 🧠 Methodology
+
+1. **Data Collection**: Scraping reviews and metadata from Steam pages
+2. **Preprocessing**: Cleaning text with regex, stopword removal, and lemmatization
+3. **Sentiment Analysis**:
+
+   * TextBlob for quick polarity scoring
+   * Transformers (BERT-based models) for nuanced classification
+4. **Trend Analysis**: Rolling averages and comparative plots to reveal sentiment shifts
+
+---
+
+## 📊 Sample Results
+
+Here’s an example of a sentiment trend output for multiple games:
+
+<p align="center">
+  <img src="images/sentiment_trend.png" alt="Sentiment Trend Example" width="600">
+  <br/>
+  <em>Average sentiment polarity of CS:GO, Dota 2, and Apex Legends over time.</em>
+</p>
+
+👉 To embed your own result plots, save them in an `images/` folder and include them with:
+
+```markdown
+![Sentiment Trend](images/sentiment_trend.png)
 ```
 
 ---
 
-## Running the Project
+## ⚠️ Challenges & Limitations
 
-Follow these steps to execute the project:
-
-### 1. Data Collection
-
-Scrape user review data from gaming platforms using BeautifulSoup. Run the script with:
-
-```bash
-python data_collection.py
-```
-
-The collected data will be saved as a CSV file named `reviews_data.csv`.
-
-### 2. Preprocessing
-
-Clean and preprocess the collected data by executing the preprocessing script:
-
-```bash
-python preprocess.py
-```
-
-This generates a cleaned dataset that is ready for sentiment analysis.
-
-### 3. Sentiment Analysis
-
-Perform sentiment classification by running:
-
-```bash
-python sentiment_analysis.py
-```
-
-#### Models Used:
-- **TextBlob**: For basic sentiment analysis.
-- **HuggingFace Transformers**: For nuanced and deep sentiment analysis.
-
-### 4. Visualization
-
-Visualize sentiment trends and shifts using:
-
-```bash
-python trend_visualization.py
-```
-
-The script generates outputs such as:
-- Rolling average graphs for sentiment trends.
-- Annotated plots showcasing significant sentiment shifts.
+* Sarcasm and irony detection remains difficult
+* Gaming slang may reduce accuracy of general sentiment models
+* Large datasets can be slow to process without GPU acceleration
+* Temporal gaps or review spikes (e.g., review bombing) can bias results
+* Currently limited to English-language reviews
 
 ---
 
-## Key Features
-- **Multi-Level Sentiment Analysis**: Combines rule-based and deep learning approaches for comprehensive results.
-- **Trend Visualization**: Highlights how sentiment evolves over time with intuitive graphs.
-- **Flexible and Scalable**: Easily adaptable to analyze reviews for other gaming titles.
+## 🔮 Future Work
+
+* Train custom models fine-tuned on gaming reviews
+* Real-time dashboard for ongoing sentiment monitoring
+* Integrate data from Reddit, Twitter, and Discord
+* Aspect-based sentiment (e.g., gameplay vs. graphics)
+* Developer-facing feedback loops
 
 ---
 
-## Acknowledgments
-Special thanks to the open-source Python community and the creators of the tools used in this project, including BeautifulSoup, TextBlob, and HuggingFace Transformers.
+## 🤝 Contributing
+
+Contributions are welcome!
+
+1. Fork the repo
+2. Create a branch: `git checkout -b feature/my-feature`
+3. Commit your changes: `git commit -m 'Add new feature'`
+4. Push and open a PR
+
+---
+
+## 📚 References
+
+* Fadhlurrahman, J. A. M., et al. (2023). *Sentiment Analysis of Game Reviews on Steam using BERT, BiLSTM, and CRF.*
+* Guzsvinecz, T., & Szűts, J. (2023). *Length and sentiment analysis of reviews about video games on the Steam platform.*
+* Dilmegani, C., & Arslan, E. (2025). *Top 7 Sentiment Analysis Challenges.*
+* Hugging Face Transformers Documentation
+* V7 Labs Blog – *AI Sentiment Analysis: Definition, Examples & Tools*
+
+---
+
+## 📌 License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
+
